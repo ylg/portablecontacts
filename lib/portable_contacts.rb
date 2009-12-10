@@ -1,6 +1,6 @@
 require 'uri'
 require 'json'
-require 'activesupport'
+
 module PortableContacts
   
   # This is the main PortableContacts Client.
@@ -175,7 +175,7 @@ module PortableContacts
     
     
     def [](key)
-      @data[key.to_s.camelize(:lower)]
+      @data[key.to_s.camelcase(:lower)]
     end
     
     # primary email address
@@ -199,7 +199,7 @@ module PortableContacts
     end
     
     def respond_to?(method)
-      ENTRY_FIELDS.include?(method) || @data.has_key?(method.to_s.camelize(:lower)) || super
+      ENTRY_FIELDS.include?(method) || @data.has_key?(method.to_s.camelcase(:lower)) || super
     end
   end
   
