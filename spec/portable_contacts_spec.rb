@@ -95,7 +95,7 @@ describe PortableContacts::Client do
   end
 
   describe "Rails Specific" do
-    require 'activesupport'
+    require 'active_support'
 
     it "should handle all parameters at once with string keys" do    
       @client.send(:options_for, 

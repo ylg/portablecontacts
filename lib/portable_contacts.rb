@@ -1,5 +1,6 @@
 require 'uri'
 require 'json'
+require 'active_support/core_ext'
 
 module PortableContacts
   
@@ -170,7 +171,7 @@ module PortableContacts
     
     
     def [](key)
-      @data[key.to_s.camelcase(:lower)]
+      @data[key.to_s.camelize(:lower)]
     end
     
     # primary email address
@@ -194,7 +195,7 @@ module PortableContacts
     end
     
     def respond_to?(method)
-      ENTRY_FIELDS.include?(method) || @data.has_key?(method.to_s.camelcase(:lower)) || super
+      ENTRY_FIELDS.include?(method) || @data.has_key?(method.to_s.camelize(:lower)) || super
     end
   end
   

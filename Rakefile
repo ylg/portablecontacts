@@ -13,7 +13,7 @@ begin
     gem.rubyforge_project = "portablecontact"
     gem.add_dependency('oauth', '>= 0.3.6')
     gem.add_dependency('json')
-    gem.add_dependency('facets')
+    gem.add_dependency('activesupport')
     gem.add_development_dependency "rspec"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
