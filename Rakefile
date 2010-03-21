@@ -20,8 +20,8 @@ begin
   Jeweler::RubyforgeTasks.new do |rubyforge|
     rubyforge.doc_task = "rdoc"
   end
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+rescue LoadError => le
+  puts "Jeweler (or a dependency) not available: '#{le}'"
 end
 
 require 'spec/rake/spectask'
