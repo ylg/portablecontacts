@@ -83,15 +83,10 @@ module PortableContacts
     
     def parse(response)
       return false unless response
-      if ["200","201"].include? response.code
-        unless response.body.blank?
-          JSON.parse(response.body)
-        else
-          true
-        end
-      else
-        false
-      end  
+      case response
+      when Net::HTTPSuccess; response.body.blank? ? nil : JSON.parse(response.body)
+      else response.error!
+      end
     end
     
     def fields_options(options=nil)
